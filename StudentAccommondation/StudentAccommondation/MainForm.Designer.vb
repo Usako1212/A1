@@ -30,13 +30,9 @@ Partial Class MainForm
         Me.统计分析ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.帮助ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.关于ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.StudentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FloorNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BuildingNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Number = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Capacity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.tb_AddRoom = New System.Windows.Forms.ToolStripButton()
@@ -48,10 +44,17 @@ Partial Class MainForm
         Me.tb_EditStudent = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tb_deleteStudent = New System.Windows.Forms.ToolStripButton()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BuildingNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FloorNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StudentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TB_ChangeRoom = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.MenuStrip1.SuspendLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -94,59 +97,39 @@ Partial Class MainForm
         Me.关于ToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.关于ToolStripMenuItem.Text = "关于..."
         '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataSource = GetType(StudentAccommondation.RoomView)
-        '
-        'StudentsDataGridViewTextBoxColumn
-        '
-        Me.StudentsDataGridViewTextBoxColumn.DataPropertyName = "Students"
-        Me.StudentsDataGridViewTextBoxColumn.HeaderText = "入住学生"
-        Me.StudentsDataGridViewTextBoxColumn.Name = "StudentsDataGridViewTextBoxColumn"
-        Me.StudentsDataGridViewTextBoxColumn.Width = 200
-        '
-        'FloorNoDataGridViewTextBoxColumn
-        '
-        Me.FloorNoDataGridViewTextBoxColumn.DataPropertyName = "FloorNo"
-        Me.FloorNoDataGridViewTextBoxColumn.HeaderText = "层号"
-        Me.FloorNoDataGridViewTextBoxColumn.Name = "FloorNoDataGridViewTextBoxColumn"
-        Me.FloorNoDataGridViewTextBoxColumn.Width = 60
-        '
-        'BuildingNoDataGridViewTextBoxColumn
-        '
-        Me.BuildingNoDataGridViewTextBoxColumn.DataPropertyName = "BuildingNo"
-        Me.BuildingNoDataGridViewTextBoxColumn.HeaderText = "楼号"
-        Me.BuildingNoDataGridViewTextBoxColumn.Name = "BuildingNoDataGridViewTextBoxColumn"
-        Me.BuildingNoDataGridViewTextBoxColumn.Width = 60
-        '
-        'NameDataGridViewTextBoxColumn
-        '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "名称"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "编号"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        '
         'DataGridView1
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.BuildingNoDataGridViewTextBoxColumn, Me.FloorNoDataGridViewTextBoxColumn, Me.StudentsDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Number, Me.NameDataGridViewTextBoxColumn, Me.Capacity, Me.BuildingNoDataGridViewTextBoxColumn, Me.FloorNoDataGridViewTextBoxColumn, Me.StudentsDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 50)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(800, 400)
         Me.DataGridView1.TabIndex = 1
+        Me.DataGridView1.Visible = False
+        '
+        'Number
+        '
+        Me.Number.DataPropertyName = "Number"
+        Me.Number.HeaderText = "编号"
+        Me.Number.Name = "Number"
+        Me.Number.ReadOnly = True
+        '
+        'Capacity
+        '
+        Me.Capacity.DataPropertyName = "Capacity"
+        Me.Capacity.HeaderText = "最大人数"
+        Me.Capacity.Name = "Capacity"
+        Me.Capacity.ReadOnly = True
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tb_AddRoom, Me.tb_EditRoom, Me.ToolStripSeparator1, Me.tb_deleteRoom, Me.ToolStripSeparator2, Me.tb_AddStudent, Me.tb_EditStudent, Me.ToolStripSeparator3, Me.tb_deleteStudent})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tb_AddRoom, Me.tb_EditRoom, Me.ToolStripSeparator1, Me.tb_deleteRoom, Me.ToolStripSeparator2, Me.tb_AddStudent, Me.tb_EditStudent, Me.ToolStripSeparator4, Me.TB_ChangeRoom, Me.ToolStripSeparator3, Me.tb_deleteStudent})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(800, 25)
@@ -162,7 +145,6 @@ Partial Class MainForm
         Me.ToolStripLabel1.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
         Me.ToolStripLabel1.Size = New System.Drawing.Size(150, 22)
-        Me.ToolStripLabel1.Text = "当前功能"
         '
         'tb_AddRoom
         '
@@ -237,6 +219,56 @@ Partial Class MainForm
         Me.tb_deleteStudent.Size = New System.Drawing.Size(84, 22)
         Me.tb_deleteStudent.Text = "删除学生档案"
         '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "名称"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        Me.NameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'BuildingNoDataGridViewTextBoxColumn
+        '
+        Me.BuildingNoDataGridViewTextBoxColumn.DataPropertyName = "BuildingNo"
+        Me.BuildingNoDataGridViewTextBoxColumn.HeaderText = "楼号"
+        Me.BuildingNoDataGridViewTextBoxColumn.Name = "BuildingNoDataGridViewTextBoxColumn"
+        Me.BuildingNoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.BuildingNoDataGridViewTextBoxColumn.Width = 60
+        '
+        'FloorNoDataGridViewTextBoxColumn
+        '
+        Me.FloorNoDataGridViewTextBoxColumn.DataPropertyName = "FloorNo"
+        Me.FloorNoDataGridViewTextBoxColumn.HeaderText = "层号"
+        Me.FloorNoDataGridViewTextBoxColumn.Name = "FloorNoDataGridViewTextBoxColumn"
+        Me.FloorNoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FloorNoDataGridViewTextBoxColumn.Width = 60
+        '
+        'StudentsDataGridViewTextBoxColumn
+        '
+        Me.StudentsDataGridViewTextBoxColumn.DataPropertyName = "Students"
+        Me.StudentsDataGridViewTextBoxColumn.HeaderText = "入住学生"
+        Me.StudentsDataGridViewTextBoxColumn.Name = "StudentsDataGridViewTextBoxColumn"
+        Me.StudentsDataGridViewTextBoxColumn.ReadOnly = True
+        Me.StudentsDataGridViewTextBoxColumn.Width = 200
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataSource = GetType(StudentAccommondation.RoomView)
+        '
+        'TB_ChangeRoom
+        '
+        Me.TB_ChangeRoom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.TB_ChangeRoom.Enabled = False
+        Me.TB_ChangeRoom.Image = CType(resources.GetObject("TB_ChangeRoom.Image"), System.Drawing.Image)
+        Me.TB_ChangeRoom.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.TB_ChangeRoom.Name = "TB_ChangeRoom"
+        Me.TB_ChangeRoom.Size = New System.Drawing.Size(60, 22)
+        Me.TB_ChangeRoom.Text = "分配房间"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 25)
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -247,13 +279,14 @@ Partial Class MainForm
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "MainForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "学生住宿管理系统v1.0"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -274,11 +307,6 @@ Partial Class MainForm
     Friend WithEvents AdmissionDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BirthdayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CreateTimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents StudentsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents FloorNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents BuildingNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
@@ -291,4 +319,12 @@ Partial Class MainForm
     Friend WithEvents tb_EditStudent As ToolStripButton
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents tb_deleteStudent As ToolStripButton
+    Friend WithEvents Number As DataGridViewTextBoxColumn
+    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Capacity As DataGridViewTextBoxColumn
+    Friend WithEvents BuildingNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FloorNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents StudentsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TB_ChangeRoom As ToolStripButton
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
 End Class
