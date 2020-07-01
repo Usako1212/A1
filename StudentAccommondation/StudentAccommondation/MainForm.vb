@@ -1,5 +1,4 @@
-﻿Imports Microsoft.EntityFrameworkCore.Metadata.Internal
-
+﻿
 Public Class MainForm
     Private Sub 关于ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 关于ToolStripMenuItem.Click
         Dim aboutBox = New AboutBox()
@@ -7,7 +6,7 @@ Public Class MainForm
     End Sub
 
     Private Sub 宿舍ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 宿舍ToolStripMenuItem.Click
-        Dim db = New StudentDb()
+        Dim db = New StudentDbcontext()
         Dim list = From r In db.Rooms
                    Select New RoomView() With {
                        .Id = r.Id,
