@@ -1,4 +1,4 @@
-﻿Public Class RoomEditor
+﻿Public Class StudentEditor
 
     Public Property RoomName As String
         Get
@@ -18,30 +18,30 @@
         End Set
     End Property
 
-    Public Property BuildingNo As String
+    Public Property Major As String
         Get
-            Return BuildingNoTextBox1.Text
+            Return MajorTextBox.Text
         End Get
         Set(ByVal value As String)
-            BuildingNoTextBox1.Text = value
+            MajorTextBox.Text = value
         End Set
     End Property
 
-    Public Property FloorNo As String
+    Public Property Birthday As Date
         Get
-            Return FloorNoTextBox.Text
+            Return BirthdayDateTimePicker.Text
         End Get
-        Set(ByVal value As String)
-            FloorNoTextBox.Text = value
+        Set(ByVal value As Date)
+            BirthdayDateTimePicker.Text = value
         End Set
     End Property
 
-    Public Property Capacity As Decimal
+    Public Property AdmissionDate As Date
         Get
-            Return NumericUpDown1.Value
+            Return AdmissionDateDateTimePicker.Value
         End Get
-        Set(ByVal value As Decimal)
-            NumericUpDown1.Value = value
+        Set(ByVal value As Date)
+            AdmissionDateDateTimePicker.Value = value
         End Set
     End Property
 

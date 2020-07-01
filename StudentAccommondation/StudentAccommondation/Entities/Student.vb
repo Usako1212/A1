@@ -2,7 +2,8 @@ Imports System
 Imports System.Collections.Generic
 
 Partial Public Class Student
-    Public Property Id As String
+    Public Property Id As Integer
+
     ''' <summary>
     ''' Ñ§ºÅ
     ''' </summary>

@@ -111,6 +111,7 @@
     <Compile Include="AboutBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Entities\StudentView.vb" />
     <Compile Include="Entities\RoomView.vb" />
     <Compile Include="Entities\Student.vb" />
     <Compile Include="Entities\Room.vb" />
@@ -122,10 +123,10 @@
       <DependentUpon>MainForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202007010525475_init.Designer.vb">
-      <DependentUpon>202007010525475_init.vb</DependentUpon>
+    <Compile Include="Migrations\202007010953554_init.Designer.vb">
+      <DependentUpon>202007010953554_init.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007010525475_init.vb" />
+    <Compile Include="Migrations\202007010953554_init.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -142,10 +143,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="RoomEditor - 复制.Designer.vb">
-      <DependentUpon>RoomEditor - 复制.vb</DependentUpon>
+    <Compile Include="StudentEditor.Designer.vb">
+      <DependentUpon>StudentEditor.vb</DependentUpon>
     </Compile>
-    <Compile Include="RoomEditor - 复制.vb">
+    <Compile Include="StudentEditor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RoomEditor.Designer.vb">
@@ -163,8 +164,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007010525475_init.resx">
-      <DependentUpon>202007010525475_init.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007010953554_init.resx">
+      <DependentUpon>202007010953554_init.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -172,8 +173,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="RoomEditor - 复制.resx">
-      <DependentUpon>RoomEditor - 复制.vb</DependentUpon>
+    <EmbeddedResource Include="StudentEditor.resx">
+      <DependentUpon>StudentEditor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomEditor.resx">
       <DependentUpon>RoomEditor.vb</DependentUpon>

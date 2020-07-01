@@ -28,24 +28,24 @@ Partial Class RoomEditor
         Dim FloorNoLabel As System.Windows.Forms.Label
         Dim NameLabel1 As System.Windows.Forms.Label
         Dim NumberLabel1 As System.Windows.Forms.Label
-        Me.StudentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BuildingNoTextBox1 = New System.Windows.Forms.TextBox()
         Me.FloorNoTextBox = New System.Windows.Forms.TextBox()
         Me.NameTextBox1 = New System.Windows.Forms.TextBox()
         Me.NumberTextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.StudentBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         BuildingNoLabel1 = New System.Windows.Forms.Label()
         CapacityLabel = New System.Windows.Forms.Label()
         FloorNoLabel = New System.Windows.Forms.Label()
         NameLabel1 = New System.Windows.Forms.Label()
         NumberLabel1 = New System.Windows.Forms.Label()
-        CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BuildingNoLabel1
@@ -96,17 +96,13 @@ Partial Class RoomEditor
         NumberLabel1.TabIndex = 17
         NumberLabel1.Text = "*房间号:"
         '
-        'StudentBindingSource
-        '
-        Me.StudentBindingSource.DataSource = GetType(StudentAccommondation.Student)
-        '
         'BuildingNoTextBox1
         '
         Me.BuildingNoTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StudentBindingSource, "Room.BuildingNo", True))
         Me.BuildingNoTextBox1.Location = New System.Drawing.Point(103, 121)
         Me.BuildingNoTextBox1.Name = "BuildingNoTextBox1"
         Me.BuildingNoTextBox1.Size = New System.Drawing.Size(100, 21)
-        Me.BuildingNoTextBox1.TabIndex = 8
+        Me.BuildingNoTextBox1.TabIndex = 3
         '
         'FloorNoTextBox
         '
@@ -114,7 +110,7 @@ Partial Class RoomEditor
         Me.FloorNoTextBox.Location = New System.Drawing.Point(103, 148)
         Me.FloorNoTextBox.Name = "FloorNoTextBox"
         Me.FloorNoTextBox.Size = New System.Drawing.Size(100, 21)
-        Me.FloorNoTextBox.TabIndex = 12
+        Me.FloorNoTextBox.TabIndex = 4
         '
         'NameTextBox1
         '
@@ -122,7 +118,7 @@ Partial Class RoomEditor
         Me.NameTextBox1.Location = New System.Drawing.Point(103, 67)
         Me.NameTextBox1.Name = "NameTextBox1"
         Me.NameTextBox1.Size = New System.Drawing.Size(100, 21)
-        Me.NameTextBox1.TabIndex = 16
+        Me.NameTextBox1.TabIndex = 1
         '
         'NumberTextBox1
         '
@@ -130,7 +126,7 @@ Partial Class RoomEditor
         Me.NumberTextBox1.Location = New System.Drawing.Point(103, 40)
         Me.NumberTextBox1.Name = "NumberTextBox1"
         Me.NumberTextBox1.Size = New System.Drawing.Size(100, 21)
-        Me.NumberTextBox1.TabIndex = 18
+        Me.NumberTextBox1.TabIndex = 0
         '
         'GroupBox1
         '
@@ -152,13 +148,32 @@ Partial Class RoomEditor
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "房间属性"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(167, 97)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(17, 12)
+        Me.Label1.TabIndex = 20
+        Me.Label1.Text = "人"
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(103, 94)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {20, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(58, 21)
+        Me.NumericUpDown1.TabIndex = 2
+        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {4, 0, 0, 0})
+        '
         'Button1
         '
         Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Button1.Location = New System.Drawing.Point(134, 232)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 20
+        Me.Button1.TabIndex = 5
         Me.Button1.Text = "确定"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -168,28 +183,13 @@ Partial Class RoomEditor
         Me.Button2.Location = New System.Drawing.Point(215, 232)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 20
+        Me.Button2.TabIndex = 6
         Me.Button2.Text = "取消"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'NumericUpDown1
+        'StudentBindingSource
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(103, 94)
-        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {20, 0, 0, 0})
-        Me.NumericUpDown1.Name = "NumericUpDown1"
-        Me.NumericUpDown1.Size = New System.Drawing.Size(58, 21)
-        Me.NumericUpDown1.TabIndex = 19
-        Me.NumericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.NumericUpDown1.Value = New Decimal(New Integer() {4, 0, 0, 0})
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(167, 97)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(17, 12)
-        Me.Label1.TabIndex = 20
-        Me.Label1.Text = "人"
+        Me.StudentBindingSource.DataSource = GetType(StudentAccommondation.Student)
         '
         'RoomEditor
         '
@@ -207,10 +207,10 @@ Partial Class RoomEditor
         Me.Name = "RoomEditor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "RoomEditor"
-        CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.StudentBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

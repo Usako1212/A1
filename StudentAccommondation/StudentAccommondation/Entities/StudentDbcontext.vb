@@ -21,5 +21,21 @@ Public Class StudentDbcontext
     Public Overridable Property Rooms As DbSet(Of Room)
     Public Overridable Property Students As DbSet(Of Student)
 
+    Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
+        MyBase.OnModelCreating(modelBuilder)
+        modelBuilder.Properties() _
+                    .Where(Function(p) p.Name = "Id") _
+                    .Configure(Function(p) p.IsKey().HasDatabaseGeneratedOption(ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity))
+        modelBuilder.Properties().Where(Function(p) p.Name = "Name") _
+            .Configure(Function(p) p.HasMaxLength(16).IsUnicode().IsRequired())
+        modelBuilder.Properties().Where(Function(p) p.Name = "Number") _
+            .Configure(Function(p) p.HasMaxLength(10).IsUnicode().IsRequired())
+        modelBuilder.Entity(Of Room).Property(Function(p) p.BuildingNo).HasMaxLength(8)
+        modelBuilder.Entity(Of Room).Property(Function(p) p.FloorNo).HasMaxLength(8)
+
+        modelBuilder.Entity(Of Student).Property(Function(p) p.Major).HasMaxLength(20)
+
+    End Sub
+
 End Class
 

@@ -12,10 +12,10 @@ Namespace Migrations
                 Function(c) New With
                     {
                         .Id = c.Int(nullable := False, identity := True),
-                        .Name = c.String(),
-                        .Number = c.String(),
-                        .BuildingNo = c.String(),
-                        .FloorNo = c.String(),
+                        .Name = c.String(nullable := False, maxLength := 16),
+                        .Number = c.String(nullable := False, maxLength := 10),
+                        .BuildingNo = c.String(maxLength := 8),
+                        .FloorNo = c.String(maxLength := 8),
                         .Capacity = c.Short(nullable := False)
                     }) _
                 .PrimaryKey(Function(t) t.Id)
@@ -24,10 +24,10 @@ Namespace Migrations
                 "dbo.Students",
                 Function(c) New With
                     {
-                        .Id = c.String(nullable := False, maxLength := 128),
-                        .Number = c.String(),
-                        .Name = c.String(),
-                        .Major = c.String(),
+                        .Id = c.Int(nullable := False, identity := True),
+                        .Number = c.String(nullable := False, maxLength := 10),
+                        .Name = c.String(nullable := False, maxLength := 16),
+                        .Major = c.String(maxLength := 20),
                         .AdmissionDate = c.DateTime(nullable := False),
                         .Birthday = c.DateTime(nullable := False),
                         .CreateTime = c.DateTime(nullable := False),
