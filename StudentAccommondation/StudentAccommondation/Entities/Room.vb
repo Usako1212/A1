@@ -1,27 +1,12 @@
-﻿''' <summary>
-''' 房间
-''' </summary>
-Public Class Room
-    ''' <summary>
-    ''' 编号
-    ''' </summary>
-    Public Property Number() As String
-    ''' <summary>
-    ''' 名称
-    ''' </summary>
-    Public Property Name() As String
-    ''' <summary>
-    ''' 楼号
-    ''' </summary>
-    Public Property BuildingNo() As String
-    ''' <summary>
-    ''' 楼层号
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property FloorNo() As String
-    ''' <summary>
-    ''' 房间容量
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property Capacity() As String
+Imports System
+Imports System.Collections.Generic
+
+Partial Public Class Room
+    Public Property Id As Integer
+    Public Property Name As String
+    Public Property Number As String
+    Public Property BuildingNo As String
+    Public Property FloorNo As String
+    Public Property Capacity As Short
+    Public Overridable Property Students As ICollection(Of Student) = New HashSet(Of Student)
 End Class

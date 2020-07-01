@@ -1,36 +1,38 @@
-ï»¿''' <summary>
-''' å­¦ç”Ÿ
-''' </summary>
-Public Class Student
-    ''' <summary>
-    ''' å­¦å·
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property Number() As String
-    ''' <summary>
-    ''' å§“å
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property Name() As String
-    ''' <summary>
-    ''' ä¸“ä¸š
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property Major() As String
+Imports System
+Imports System.Collections.Generic
 
+Partial Public Class Student
+    Public Property Id As String
     ''' <summary>
-    ''' å…¥å­¦æ—¥æœŸ
+    ''' Ñ§ºÅ
     ''' </summary>
     ''' <returns></returns>
-    Public Property AdmissionDate() As Date
+    Public Property Number As String
     ''' <summary>
-    ''' ç”Ÿæ—¥
+    ''' ĞÕÃû
     ''' </summary>
     ''' <returns></returns>
-    Public Property Birthday() As Date
+    Public Property Name As String
     ''' <summary>
-    ''' åˆ›å»ºæ—¶é—´
+    ''' ×¨Òµ
     ''' </summary>
     ''' <returns></returns>
-    Public Property CreateTime() As Date
+    Public Property Major As String
+    ''' <summary>
+    ''' ÈëÑ§Ê±¼ä
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property AdmissionDate As Date
+    ''' <summary>
+    ''' ÉúÈÕ
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Birthday As Date
+    ''' <summary>
+    ''' ´´½¨Ê±¼ä
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property CreateTime As Date
+    Public Overridable Property Room As Room
+
 End Class
