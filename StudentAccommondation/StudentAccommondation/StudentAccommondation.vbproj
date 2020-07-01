@@ -187,6 +187,7 @@
     </None>
     <None Include="My Project\DataSources\RoomView.datasource" />
     <None Include="My Project\DataSources\Student.datasource" />
+    <None Include="My Project\DataSources\StudentView.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

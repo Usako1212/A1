@@ -1,6 +1,6 @@
 ﻿Public Class StudentEditor
 
-    Public Property RoomName As String
+    Public Property StudentName As String
         Get
             Return NameTextBox1.Text
         End Get

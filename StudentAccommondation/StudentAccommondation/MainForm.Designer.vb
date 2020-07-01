@@ -31,13 +31,13 @@ Partial Class MainForm
         Me.帮助ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.关于ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Number = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Capacity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BuildingNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FloorNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StudentsDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.tb_AddRoom = New System.Windows.Forms.ToolStripButton()
@@ -51,6 +51,12 @@ Partial Class MainForm
         Me.TB_ChangeRoom = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tb_deleteStudent = New System.Windows.Forms.ToolStripButton()
+        Me.NameDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Major = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdmissionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Birthday = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RoomName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,7 +108,6 @@ Partial Class MainForm
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Number, Me.NameDataGridViewTextBoxColumn, Me.Capacity, Me.BuildingNoDataGridViewTextBoxColumn, Me.FloorNoDataGridViewTextBoxColumn, Me.StudentsDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.BindingSource1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 50)
@@ -112,6 +117,9 @@ Partial Class MainForm
         Me.DataGridView1.Size = New System.Drawing.Size(800, 400)
         Me.DataGridView1.TabIndex = 1
         Me.DataGridView1.Visible = False
+        '
+        'BindingSource1
+        '
         '
         'Number
         '
@@ -157,10 +165,6 @@ Partial Class MainForm
         Me.StudentsDataGridViewTextBoxColumn.Name = "StudentsDataGridViewTextBoxColumn"
         Me.StudentsDataGridViewTextBoxColumn.ReadOnly = True
         Me.StudentsDataGridViewTextBoxColumn.Width = 200
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataSource = GetType(StudentAccommondation.RoomView)
         '
         'ToolStrip1
         '
@@ -269,6 +273,50 @@ Partial Class MainForm
         Me.tb_deleteStudent.Size = New System.Drawing.Size(84, 22)
         Me.tb_deleteStudent.Text = "删除学生档案"
         '
+        'NameDataGridViewTextBoxColumn1
+        '
+        Me.NameDataGridViewTextBoxColumn1.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn1.HeaderText = "姓名"
+        Me.NameDataGridViewTextBoxColumn1.Name = "NameDataGridViewTextBoxColumn1"
+        Me.NameDataGridViewTextBoxColumn1.ReadOnly = True
+        Me.NameDataGridViewTextBoxColumn1.Width = 80
+        '
+        'NumberDataGridViewTextBoxColumn
+        '
+        Me.NumberDataGridViewTextBoxColumn.DataPropertyName = "Number"
+        Me.NumberDataGridViewTextBoxColumn.HeaderText = "学号"
+        Me.NumberDataGridViewTextBoxColumn.Name = "NumberDataGridViewTextBoxColumn"
+        Me.NumberDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NumberDataGridViewTextBoxColumn.Width = 80
+        '
+        'Major
+        '
+        Me.Major.DataPropertyName = "Major"
+        Me.Major.HeaderText = "专业"
+        Me.Major.Name = "Major"
+        Me.Major.ReadOnly = True
+        '
+        'AdmissionDate
+        '
+        Me.AdmissionDate.DataPropertyName = "AdmissionDate"
+        Me.AdmissionDate.HeaderText = "入学日期"
+        Me.AdmissionDate.Name = "AdmissionDate"
+        Me.AdmissionDate.ReadOnly = True
+        '
+        'Birthday
+        '
+        Me.Birthday.DataPropertyName = "Birthday"
+        Me.Birthday.HeaderText = "生日"
+        Me.Birthday.Name = "Birthday"
+        Me.Birthday.ReadOnly = True
+        '
+        'RoomName
+        '
+        Me.RoomName.DataPropertyName = "RoomName"
+        Me.RoomName.HeaderText = "所在房间"
+        Me.RoomName.Name = "RoomName"
+        Me.RoomName.ReadOnly = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -303,9 +351,6 @@ Partial Class MainForm
     Friend WithEvents 帮助ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents 关于ToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BindingSource1 As BindingSource
-    Friend WithEvents MajorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents AdmissionDateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents BirthdayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CreateTimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ToolStrip1 As ToolStrip
@@ -327,4 +372,10 @@ Partial Class MainForm
     Friend WithEvents StudentsDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TB_ChangeRoom As ToolStripButton
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents NameDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents NumberDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Major As DataGridViewTextBoxColumn
+    Friend WithEvents AdmissionDate As DataGridViewTextBoxColumn
+    Friend WithEvents Birthday As DataGridViewTextBoxColumn
+    Friend WithEvents RoomName As DataGridViewTextBoxColumn
 End Class

@@ -10,6 +10,8 @@ Public Class MainForm
     Private Sub 宿舍ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 宿舍ToolStripMenuItem.Click
         CurrentView = ViewType.Room
         ToolStripLabel1.Text = "房间视图"
+        DataGridView1.Columns.Clear()
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Number, NameDataGridViewTextBoxColumn, Capacity, BuildingNoDataGridViewTextBoxColumn, FloorNoDataGridViewTextBoxColumn, StudentsDataGridViewTextBoxColumn})
         RefreshRoomView()
     End Sub
 
@@ -134,6 +136,8 @@ Public Class MainForm
     Private Sub 学生ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 学生ToolStripMenuItem.Click
         CurrentView = ViewType.Student
         ToolStripLabel1.Text = "学生视图"
+        DataGridView1.Columns.Clear()
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {NameDataGridViewTextBoxColumn1, NumberDataGridViewTextBoxColumn, Major, AdmissionDate, Birthday, RoomName})
         RefreshStudentView()
     End Sub
 
@@ -161,7 +165,7 @@ Public Class MainForm
                 .Birthday = studentAdd.Birthday,
                 .AdmissionDate = studentAdd.AdmissionDate,
                 .Major = studentAdd.Major,
-                .Name = studentAdd.RoomName,
+                .Name = studentAdd.StudentName,
                 .Number = studentAdd.Number,
                 .CreateTime = Date.Now
                          })
@@ -180,7 +184,7 @@ Public Class MainForm
         Dim StudentEdit As StudentEditor = New StudentEditor With {
             .Text = "编辑学生档案",
             .Major = student.Major,
-            .Name = student.Name,
+            .StudentName = student.Name,
             .Number = student.Number,
             .Birthday = student.Birthday,
             .AdmissionDate = student.AdmissionDate
@@ -190,7 +194,7 @@ Public Class MainForm
             student.Major = StudentEdit.Major
             student.AdmissionDate = StudentEdit.AdmissionDate
             student.Birthday = StudentEdit.Birthday
-            student.Name = StudentEdit.RoomName
+            student.Name = StudentEdit.StudentName
             student.Number = StudentEdit.Number
             db.SaveChanges()
             If CurrentView = ViewType.Student Then
