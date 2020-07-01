@@ -1,4 +1,7 @@
 ﻿
+Imports System.Data.Entity
+Imports System.Data.Entity.Validation
+
 Public Class MainForm
     Private CurrentView As ViewType
 
@@ -35,15 +38,15 @@ Public Class MainForm
 
     Private Sub RefreshStudentView()
         Dim db = New StudentDbcontext()
-        Dim list = db.Students.Include("Room").AsEnumerable().Select(Function(r) _
+        Dim list = db.Students.Include(Of Room)(Function(s) s.Room).Select(Function(s) _
             New StudentView With {
-                .Id = r.Id,
-                .Name = r.Name,
-                .Number = r.Number,
-                .AdmissionDate = r.AdmissionDate,
-                .Birthday = r.Birthday,
-                .Major = r.Major,
-                .RoomName = r.Room?.Name})
+                .Id = s.Id,
+                .Name = s.Name,
+                .Number = s.Number,
+                .AdmissionDate = s.AdmissionDate,
+                .Birthday = s.Birthday,
+                .Major = s.Major,
+                .RoomName = s.Room.Name}).ToList()
 
         BindingSource1.DataSource = list.ToList()
         If Not DataGridView1.Visible Then
@@ -80,11 +83,13 @@ Public Class MainForm
             tb_deleteRoom.Enabled = flag
             tb_EditStudent.Enabled = False
             tb_deleteStudent.Enabled = False
+            TB_ChangeRoom.Enabled = False
         End If
         If CurrentView = ViewType.Student Then
             tb_EditRoom.Enabled = False
             tb_deleteRoom.Enabled = False
             tb_EditStudent.Enabled = flag
+            TB_ChangeRoom.Enabled = flag
             tb_deleteStudent.Enabled = flag
         End If
     End Sub
@@ -167,7 +172,8 @@ Public Class MainForm
                 .Major = studentAdd.Major,
                 .Name = studentAdd.StudentName,
                 .Number = studentAdd.Number,
-                .CreateTime = Date.Now
+                .CreateTime = Date.Now,
+                .Room = Nothing
                          })
             db.SaveChanges()
             If CurrentView = ViewType.Student Then
@@ -201,5 +207,34 @@ Public Class MainForm
                 RefreshStudentView()
             End If
         End If
+    End Sub
+
+    Private Sub TB_ChangeRoom_Click(sender As Object, e As EventArgs) Handles TB_ChangeRoom.Click
+        Dim studentView = TryCast(BindingSource1.Current, StudentView)
+        Using db As New StudentDbcontext()
+            db.Configuration.ProxyCreationEnabled = False
+            'db.Configuration.LazyLoadingEnabled = False
+            Dim student = db.Students.Single(Function(s) s.Id = studentView.Id)
+            Dim roomlist = db.Rooms.ToList()
+            Dim RoomChanger = New SetRoom With {
+                .StudentName = studentView.Name,
+                .Rooms = roomlist,
+                .SelectedRoom = student.Room
+            }
+            Dim dr = RoomChanger.ShowDialog()
+            If dr = DialogResult.OK Then
+                '更新学生的房间数据
+                student.Room = Nothing
+                db.SaveChanges()
+                student.Room = RoomChanger.SelectedRoom
+                db.SaveChanges()
+            ElseIf dr = DialogResult.Yes Then
+                student.Room = Nothing
+                db.SaveChanges()
+            End If
+            If Not dr = DialogResult.Cancel And CurrentView = ViewType.Student Then
+                RefreshStudentView()
+            End If
+        End Using
     End Sub
 End Class

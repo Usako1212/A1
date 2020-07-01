@@ -123,10 +123,10 @@
       <DependentUpon>MainForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Migrations\202007010953554_init.Designer.vb">
-      <DependentUpon>202007010953554_init.vb</DependentUpon>
+    <Compile Include="Migrations\202007011604000_init.Designer.vb">
+      <DependentUpon>202007011604000_init.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202007010953554_init.vb" />
+    <Compile Include="Migrations\202007011604000_init.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -142,6 +142,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SetRoom.Designer.vb">
+      <DependentUpon>SetRoom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SetRoom.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="StudentEditor.Designer.vb">
       <DependentUpon>StudentEditor.vb</DependentUpon>
@@ -164,14 +170,17 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202007010953554_init.resx">
-      <DependentUpon>202007010953554_init.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007011604000_init.resx">
+      <DependentUpon>202007011604000_init.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetRoom.resx">
+      <DependentUpon>SetRoom.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentEditor.resx">
       <DependentUpon>StudentEditor.vb</DependentUpon>
@@ -185,6 +194,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Room.datasource" />
     <None Include="My Project\DataSources\RoomView.datasource" />
     <None Include="My Project\DataSources\Student.datasource" />
     <None Include="My Project\DataSources\StudentView.datasource" />

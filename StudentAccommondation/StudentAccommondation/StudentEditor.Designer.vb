@@ -68,7 +68,7 @@ Partial Class StudentEditor
         '
         'NameTextBox1
         '
-        Me.NameTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StudentBindingSource, "Room.Name", True))
+        Me.NameTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StudentBindingSource, "Name", True))
         Me.NameTextBox1.Location = New System.Drawing.Point(101, 70)
         Me.NameTextBox1.Name = "NameTextBox1"
         Me.NameTextBox1.Size = New System.Drawing.Size(100, 21)
@@ -76,7 +76,7 @@ Partial Class StudentEditor
         '
         'NumberTextBox1
         '
-        Me.NumberTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StudentBindingSource, "Room.Number", True))
+        Me.NumberTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StudentBindingSource, "Number", True))
         Me.NumberTextBox1.Location = New System.Drawing.Point(101, 43)
         Me.NumberTextBox1.Name = "NumberTextBox1"
         Me.NumberTextBox1.Size = New System.Drawing.Size(100, 21)

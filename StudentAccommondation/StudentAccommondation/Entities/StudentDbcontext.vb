@@ -34,6 +34,10 @@ Public Class StudentDbcontext
         modelBuilder.Entity(Of Room).Property(Function(p) p.FloorNo).HasMaxLength(8)
 
         modelBuilder.Entity(Of Student).Property(Function(p) p.Major).HasMaxLength(20)
+        'modelBuilder.Entity(Of Student).Property(Function(p) p.RoomId).IsOptional()
+        modelBuilder.Entity(Of Student).HasOptional(Function(s) s.Room).WithMany(Function(r) r.Students)
+        'modelBuilder.Entity(Of Room).HasMany(Function(r) r.Students).WithOptional(Function(s) s.Room)
+
 
     End Sub
 

@@ -31,7 +31,6 @@ Partial Class MainForm
         Me.帮助ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.关于ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Number = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Capacity = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,10 +56,11 @@ Partial Class MainForm
         Me.AdmissionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Birthday = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoomName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -117,9 +117,6 @@ Partial Class MainForm
         Me.DataGridView1.Size = New System.Drawing.Size(800, 400)
         Me.DataGridView1.TabIndex = 1
         Me.DataGridView1.Visible = False
-        '
-        'BindingSource1
-        '
         '
         'Number
         '
@@ -317,6 +314,9 @@ Partial Class MainForm
         Me.RoomName.Name = "RoomName"
         Me.RoomName.ReadOnly = True
         '
+        'BindingSource1
+        '
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -332,9 +332,9 @@ Partial Class MainForm
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

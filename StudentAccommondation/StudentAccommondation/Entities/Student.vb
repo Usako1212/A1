@@ -34,6 +34,7 @@ Partial Public Class Student
     ''' </summary>
     ''' <returns></returns>
     Public Property CreateTime As Date
+    'Public Property RoomId As Integer
     Public Overridable Property Room As Room
 
 End Class
