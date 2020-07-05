@@ -31,6 +31,7 @@ Partial Class MainForm
         Me.帮助ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.关于ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Number = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Capacity = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,11 +57,11 @@ Partial Class MainForm
         Me.AdmissionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Birthday = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RoomName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ToolStrip1.SuspendLayout()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -118,6 +119,9 @@ Partial Class MainForm
         Me.DataGridView1.TabIndex = 1
         Me.DataGridView1.Visible = False
         '
+        'BindingSource1
+        '
+        '
         'Number
         '
         Me.Number.DataPropertyName = "Number"
@@ -165,7 +169,7 @@ Partial Class MainForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tb_AddRoom, Me.tb_EditRoom, Me.ToolStripSeparator1, Me.tb_deleteRoom, Me.ToolStripSeparator2, Me.tb_AddStudent, Me.tb_EditStudent, Me.ToolStripSeparator4, Me.TB_ChangeRoom, Me.ToolStripSeparator3, Me.tb_deleteStudent})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tb_AddRoom, Me.tb_EditRoom, Me.ToolStripSeparator1, Me.tb_deleteRoom, Me.ToolStripSeparator2, Me.tb_AddStudent, Me.tb_EditStudent, Me.ToolStripSeparator4, Me.TB_ChangeRoom, Me.ToolStripSeparator3, Me.tb_deleteStudent, Me.ToolStripTextBox1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 25)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(800, 25)
@@ -314,8 +318,12 @@ Partial Class MainForm
         Me.RoomName.Name = "RoomName"
         Me.RoomName.ReadOnly = True
         '
-        'BindingSource1
+        'ToolStripTextBox1
         '
+        Me.ToolStripTextBox1.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!)
+        Me.ToolStripTextBox1.Name = "ToolStripTextBox1"
+        Me.ToolStripTextBox1.Size = New System.Drawing.Size(100, 25)
+        Me.ToolStripTextBox1.ToolTipText = "输入要搜索的关键字"
         '
         'MainForm
         '
@@ -332,9 +340,9 @@ Partial Class MainForm
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
-        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -378,4 +386,5 @@ Partial Class MainForm
     Friend WithEvents AdmissionDate As DataGridViewTextBoxColumn
     Friend WithEvents Birthday As DataGridViewTextBoxColumn
     Friend WithEvents RoomName As DataGridViewTextBoxColumn
+    Friend WithEvents ToolStripTextBox1 As ToolStripTextBox
 End Class

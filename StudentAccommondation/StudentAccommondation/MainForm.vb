@@ -15,12 +15,17 @@ Public Class MainForm
         ToolStripLabel1.Text = "房间视图"
         DataGridView1.Columns.Clear()
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {Number, NameDataGridViewTextBoxColumn, Capacity, BuildingNoDataGridViewTextBoxColumn, FloorNoDataGridViewTextBoxColumn, StudentsDataGridViewTextBoxColumn})
+        ToolStripTextBox1.Text = ""
         RefreshRoomView()
     End Sub
 
-    Private Sub RefreshRoomView()
+    Private Sub RefreshRoomView(Optional keyword As String = "")
         Dim db = New StudentDbcontext()
-        Dim list = db.Rooms.Include("students").AsEnumerable().Select(Function(r) _
+        Dim list = db.Rooms.Include("students")
+        If Not String.IsNullOrWhiteSpace(keyword) Then
+            list = list.Where(Function(r) r.Number.Contains(keyword) Or r.Name.Contains(keyword) Or r.BuildingNo.Contains(keyword) Or r.FloorNo.Contains(keyword))
+        End If
+        Dim viewList = list.AsEnumerable().Select(Function(r) _
             New RoomView With {
                 .Id = r.Id,
                 .Name = r.Name,
@@ -30,15 +35,19 @@ Public Class MainForm
                 .FloorNo = r.FloorNo,
                 .Students = String.Join(",", r.Students.Select(Function(s) s.Name).ToArray())})
 
-        BindingSource1.DataSource = list.ToList()
+        BindingSource1.DataSource = viewList.ToList()
         If Not DataGridView1.Visible Then
             DataGridView1.Show()
         End If
     End Sub
 
-    Private Sub RefreshStudentView()
+    Private Sub RefreshStudentView(Optional keyword As String = "")
         Dim db = New StudentDbcontext()
-        Dim list = db.Students.Include(Of Room)(Function(s) s.Room).Select(Function(s) _
+        Dim list = db.Students.Include(Function(s) s.Room)
+        If Not String.IsNullOrWhiteSpace(keyword) Then
+            list = list.Where(Function(r) r.Number.Contains(keyword) Or r.Name.Contains(keyword) Or r.Major.Contains(keyword) Or r.Room.Name.Contains(keyword) Or r.Room.Number.Contains(keyword))
+        End If
+        Dim viewList = list.AsEnumerable().Select(Function(s) _
             New StudentView With {
                 .Id = s.Id,
                 .Name = s.Name,
@@ -143,6 +152,7 @@ Public Class MainForm
         ToolStripLabel1.Text = "学生视图"
         DataGridView1.Columns.Clear()
         DataGridView1.Columns.AddRange(New DataGridViewColumn() {NameDataGridViewTextBoxColumn1, NumberDataGridViewTextBoxColumn, Major, AdmissionDate, Birthday, RoomName})
+        ToolStripTextBox1.Text = ""
         RefreshStudentView()
     End Sub
 
@@ -235,5 +245,13 @@ Public Class MainForm
                 RefreshStudentView()
             End If
         End Using
+    End Sub
+
+    Private Sub ToolStripTextBox1_TextChanged(sender As Object, e As EventArgs) Handles ToolStripTextBox1.TextChanged
+        If CurrentView = ViewType.Room Then
+            RefreshRoomView(ToolStripTextBox1.Text)
+        Else
+            RefreshStudentView(ToolStripTextBox1.Text)
+        End If
     End Sub
 End Class
