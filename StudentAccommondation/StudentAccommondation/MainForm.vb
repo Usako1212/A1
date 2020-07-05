@@ -57,7 +57,7 @@ Public Class MainForm
                 .Major = s.Major,
                 .RoomName = s.Room.Name}).ToList()
 
-        BindingSource1.DataSource = list.ToList()
+        BindingSource1.DataSource = viewList.ToList()
         If Not DataGridView1.Visible Then
             DataGridView1.Show()
         End If
