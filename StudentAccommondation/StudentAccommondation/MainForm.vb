@@ -225,7 +225,7 @@ Public Class MainForm
         Dim studentView = TryCast(BindingSource1.Current, StudentView)
         Using db As New StudentDbcontext()
             db.Configuration.ProxyCreationEnabled = False
-            Dim student = db.Students.Single(Function(s) s.Id = studentView.Id)
+            Dim student = db.Students.Include(Function(s) s.Room).Single(Function(s) s.Id = studentView.Id)
             Dim roomlist = db.Rooms.Include(Function(r) r.Students).Where(Function(r) r.Students.Count < r.Capacity).ToList()
             Dim RoomChanger = New SetRoom With {
                 .StudentName = studentView.Name,
