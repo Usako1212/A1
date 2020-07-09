@@ -1,5 +1,6 @@
 ﻿
 Imports System.Data.Entity
+Imports System.Data.Entity.Core.Common.CommandTrees
 Imports System.Data.Entity.Validation
 
 Public Class MainForm
@@ -47,7 +48,7 @@ Public Class MainForm
         If Not String.IsNullOrWhiteSpace(keyword) Then
             list = list.Where(Function(r) r.Number.Contains(keyword) Or r.Name.Contains(keyword) Or r.Major.Contains(keyword) Or r.Room.Name.Contains(keyword) Or r.Room.Number.Contains(keyword))
         End If
-        Dim viewList = list.AsEnumerable().Select(Function(s) _
+        Dim viewList = list.ToList().Select(Function(s) _
             New StudentView With {
                 .Id = s.Id,
                 .Name = s.Name,
@@ -55,7 +56,8 @@ Public Class MainForm
                 .AdmissionDate = s.AdmissionDate,
                 .Birthday = s.Birthday,
                 .Major = s.Major,
-                .RoomName = s.Room.Name}).ToList()
+                .RoomName = If(IsNothing(s.Room), "", s.Room.Name)
+            }).ToList()
 
         BindingSource1.DataSource = viewList.ToList()
         If Not DataGridView1.Visible Then
