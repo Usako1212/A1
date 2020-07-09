@@ -56,7 +56,7 @@ Public Class MainForm
                 .AdmissionDate = s.AdmissionDate,
                 .Birthday = s.Birthday,
                 .Major = s.Major,
-                .RoomName = If(s?.Room, "")
+                .RoomName = If(s.Room?.Name, "")
             }).ToList()
 
         BindingSource1.DataSource = viewList.ToList()
